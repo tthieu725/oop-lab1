@@ -1,0 +1,29 @@
+Trả lời câu hỏi:
+What happens if users choose "Cancel"?
+
+Khi người dùng nhấn "Cancel", JOptionPane.showConfirmDialog() sẽ trả về giá trị JOptionPane.CANCEL_OPTION.
+Tuy nhiên, trong đoạn code trên, giá trị "Cancel" chưa được xử lý riêng biệt, do đó, kết quả của lựa chọn này không được hiển thị.
+Giải thích lý do chương trình hiển thị "You've chosen: No" khi chọn Cancel
+Trong đoạn code bạn chạy, có đoạn sau xác định lựa chọn của người dùng:
+JOptionPane.showMessageDialog(null, "You've chosen: " + (option == JOptionPane.YES_OPTION ? "Yes" : "No"));
+Vấn đề:
+Khi chọn Cancel, JOptionPane.showConfirmDialog() sẽ trả về JOptionPane.CANCEL_OPTION (thường là giá trị 2).
+Nhưng đoạn code trên chỉ kiểm tra YES_OPTION, nếu không phải YES_OPTION, chương trình mặc định hiển thị "No" mà không phân biệt giữa No và Cancel.
+Nếu muốn xử lý trường hợp này, có thể thêm một điều kiện kiểm tra option == JOptionPane.CANCEL_OPTION để hiển thị thông báo phù hợp.
+
+How to customize the options to users, e.g., only two options: "Yes" and "No", OR "I do" and "I don’t"?
+
+Mặc định, JOptionPane.showConfirmDialog() có ba tùy chọn: Yes, No, Cancel.
+Để giới hạn chỉ hiển thị hai tùy chọn như "Yes" và "No" hoặc "I do" và "I don’t", có thể sử dụng JOptionPane.showOptionDialog()
+Object[] options = {"I do", "I don’t"};
+int option = JOptionPane.showOptionDialog(null, 
+        "Do you agree?", 
+        "Confirmation", 
+        JOptionPane.YES_NO_OPTION, 
+        JOptionPane.QUESTION_MESSAGE, 
+        null, 
+        options, 
+        options[0]);
+
+JOptionPane.showMessageDialog(null, "You've chosen: " + (option == 0 ? "I do" : "I don’t"));
+Đoạn code trên sẽ hiển thị hộp thoại với hai nút "I do" và "I don’t" thay vì "Yes" và "No"
