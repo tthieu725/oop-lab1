@@ -1,0 +1,11 @@
+Câu hỏi: Nếu bạn tạo một phương thức khởi tạo để xây dựng một DVD theo tiêu đề, sau đó tạo một phương thức khởi tạo để xây dựng một DVD theo thể loại, Java có cho phép làm điều này không?
+Câu trả lời: Nếu cả hai phương thức khởi tạo đều chỉ sử dụng một tham số kiểu String và cả tiêu đề và thể loại đều là String thì Java sẽ không cho phép làm điều này. Ngược lại, Java sẽ chấp nhận miễn là hai thuộc tính sử dụng các kiểu dữ liệu khác nhau.
+
+Câu hỏi: Java là ngôn ngữ truyền tham trị hay tham chiếu?
+Câu trả lời: Java là ngôn ngữ truyền tham trị.
+
+Câu hỏi: Sau khi gọi swap(jungleDVD, cinderellaDVD), tại sao tiêu đề của hai đối tượng vẫn giữ nguyên?
+Câu trả lời: Tiêu đề của hai đối tượng vẫn giữ nguyên vì Java chỉ truyền các tham chiếu đối tượng theo giá trị.
+
+Câu hỏi: Sau khi gọi changeTitle(jungleDVD, cinderellaDVD.getTitle()), tại sao tiêu đề của JungleDVD lại bị thay đổi?
+Câu trả lời: Vì dvd.setTitle(title) sửa đổi đối tượng DigitalVideoDisc mà dvd tham chiếu đến. Biến dvd là một bản sao của tham chiếu đến jungleDVD, do đó việc sửa đổi dvd thực sự thay đổi jungleDVD trực tiếp.
